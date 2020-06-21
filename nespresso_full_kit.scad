@@ -21,6 +21,7 @@ $slider_hole_width = 4;
 $slider_hole_height = 8;
 
 $bridge = true;
+$bridge_width = 47;
 $bridge_joint_length = 6;
 
 //////////////
@@ -216,6 +217,7 @@ module dispenser () {
     }
   }
 
+
   // ugly fill bottom beam
   translate([24,0,0]){
     cube([4.4,13.8,$beam_depth]);
@@ -239,13 +241,13 @@ module dispenser () {
 module bridge () {
 
   difference() {
-    cube([8,45,$bridge_joint_length]);
+    cube([8, $bridge_width ,$bridge_joint_length]);
 
     // joints (cutout)
     translate([2,2,$bridge_joint_length / 2]){
       cube([4,4, $bridge_joint_length / 2]);
     }
-    translate([2,39,$bridge_joint_length / 2]){
+    translate([2,$bridge_width - 6,$bridge_joint_length / 2]){
       cube([4,4, $bridge_joint_length / 2]);
     }
   }
